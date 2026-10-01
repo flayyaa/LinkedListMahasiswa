@@ -47,6 +47,8 @@ void deleteHead() {
     Student* temp = head;
     head = head->next;
     delete temp;
+
+    cout << "First student has been deleted." << endl;
 }
 
 void deleteLast() {
@@ -58,6 +60,7 @@ void deleteLast() {
     if (head->next == nullptr) {
         delete head;
         head = nullptr;
+        cout << "Last student has been deleted." << endl;
         return;
     }
 
@@ -68,6 +71,8 @@ void deleteLast() {
 
     delete temp->next;
     temp->next = nullptr;
+
+    cout << "Last student has been deleted." << endl;
 }
 
 void printAll() {
@@ -83,6 +88,7 @@ void printAll() {
         cout << "Name  : " << temp->name << endl;
         cout << "Birth : " << temp->birth << endl;
         cout << endl;
+
         temp = temp->next;
     }
 }
@@ -123,22 +129,30 @@ int main() {
             cout << "NIM: ";
             cin >> nim;
             cin.ignore();
+
             cout << "Name: ";
             getline(cin, name);
+
             cout << "Birth: ";
             cin >> birth;
+
             insertHead(nim, name, birth);
+            cout << "Student added to head." << endl;
             break;
 
         case 2:
             cout << "NIM: ";
             cin >> nim;
             cin.ignore();
+
             cout << "Name: ";
             getline(cin, name);
+
             cout << "Birth: ";
             cin >> birth;
+
             insertLast(nim, name, birth);
+            cout << "Student added to last." << endl;
             break;
 
         case 3:
@@ -154,11 +168,11 @@ int main() {
             break;
 
         case 0:
-            cout << "Program finished" << endl;
+            cout << "Program finished." << endl;
             break;
 
         default:
-            cout << "Invalid choice" << endl;
+            cout << "Invalid choice." << endl;
         }
 
     } while (choice != 0);
